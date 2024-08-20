@@ -79,6 +79,8 @@
 #define APP_IDLE_NVIC_PENDSVCLEAR_BIT            ( 1UL << 27UL )
 #define APP_IDLE_NVIC_PEND_SYSTICK_CLEAR_BIT     ( 1UL << 25UL )
 
+
+
 /*
  * The number of SysTick increments that make up one tick period.
  */
@@ -107,8 +109,6 @@ static uint32_t s_ulStoppedTimerCompensationRtcS = 0UL;
 static uint32_t s_rtcCntBeforeSleep = 0UL;
 static bool s_chkRtcCnt;
 
-
-
 void app_idle_task( void )
 {
     uint8_t PDS_Items_Pending = PDS_GetPendingItemsCount();
@@ -133,7 +133,7 @@ void app_idle_task( void )
             }
             else if ((RF_Cal_Needed) && (BT_RF_Suspended == BT_SYS_RF_SUSPENDED_NO_SLEEP))
             {
-                RF_Timer_Cal(WSS_ENABLE_BLE);
+                   RF_Timer_Cal(WSS_ENABLE_BLE);
             }
             BT_SYS_RfSuspendReq(0);
         }
@@ -189,7 +189,7 @@ static void app_idle_setRtcTimeout(TickType_t expectedIdleTick, uint32_t current
        2. RTC Clock : RTC_Timer32FrequencyGet
        3. expectedIdleTime (ms) * RTC clock (32 kHz) = compareValue value
     */
-    compareValue = (expectedIdleTick * RTC_Timer32FrequencyGet() + (configTICK_RATE_HZ / 2)) / configTICK_RATE_HZ;
+    compareValue = ((uint64_t)expectedIdleTick * RTC_Timer32FrequencyGet() + (configTICK_RATE_HZ / 2)) / configTICK_RATE_HZ;
 
 
     /* Give a compensation value to eliminate the offset between RTC and system timer
@@ -369,6 +369,7 @@ void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime )
             PMU_ConfigCurrentSensor(false);
         }
 
+
         /* Enter system sleep mode */
         DEVICE_EnterSleepMode();
 
@@ -477,6 +478,7 @@ void vPortSuppressTicksAndSleep( TickType_t xExpectedIdleTime )
 
         /* Exit with interrupts enabled. */
         __asm volatile( "cpsie i" ::: "memory" );
+        
     }
 }
 

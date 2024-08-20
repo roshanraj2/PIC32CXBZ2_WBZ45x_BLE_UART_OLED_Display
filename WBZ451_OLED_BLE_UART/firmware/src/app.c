@@ -74,6 +74,10 @@ uint16_t conn_hdl = 0xFFFF;
 // *****************************************************************************
 // *****************************************************************************
 
+
+
+
+
 // *****************************************************************************
 /* Application Data
 
@@ -130,6 +134,7 @@ void APP_Initialize ( void )
     /* Place the App state machine in its initial state. */
     appData.state = APP_STATE_INIT;
     
+
     appData.appQueue = xQueueCreate( 64, sizeof(APP_Msg_T) );
     /* TODO: Initialize your application's state machine and other
      * parameters.
@@ -144,6 +149,7 @@ void APP_Initialize ( void )
   Remarks:
     See prototype in app.h.
  */
+
 void APP_Tasks ( void )
 {
     APP_Msg_T    appMsg[1];
@@ -182,6 +188,7 @@ void APP_Tasks ( void )
         {
             if (OSAL_QUEUE_Receive(&appData.appQueue, &appMsg, OSAL_WAIT_FOREVER))
             {
+
                 if(p_appMsg->msgId==APP_MSG_BLE_STACK_EVT)
                 {
                     // Pass BLE Stack Event Message to User Application for handling

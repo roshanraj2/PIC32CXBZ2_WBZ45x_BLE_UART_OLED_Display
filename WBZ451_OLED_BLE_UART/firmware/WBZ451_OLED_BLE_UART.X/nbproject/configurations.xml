@@ -8,6 +8,8 @@
         <itemPath>../src/app_ble/app_ble.h</itemPath>
         <itemPath>../src/app_ble/app_trsps_handler.h</itemPath>
         <itemPath>../src/app_ble/app_ble_handler.h</itemPath>
+        <itemPath>../src/app_ble/app_ble_utility.h</itemPath>
+        <itemPath>../src/app_ble/app_ble_dsadv.h</itemPath>
       </logicalFolder>
       <logicalFolder name="click_routines"
                      displayName="click_routines"
@@ -44,19 +46,15 @@
                 <itemPath>../src/config/default/ble/middleware_ble/ble_dm/ble_dm.h</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_dm/ble_dm_internal.h</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_dm/ble_dm_info.h</itemPath>
-                <itemPath>../src/config/default/ble/middleware_ble/ble_dm/ble_dm_aes.h</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_dm/ble_dm_conn.h</itemPath>
               </logicalFolder>
               <logicalFolder name="ble_gcm" displayName="ble_gcm" projectFiles="true">
-                <itemPath>../src/config/default/ble/middleware_ble/ble_gcm/ble_scm.h</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_gcm/ble_dd.h</itemPath>
-              </logicalFolder>
-              <logicalFolder name="ble_log" displayName="ble_log" projectFiles="true">
-                <itemPath>../src/config/default/ble/middleware_ble/ble_log/ble_log.h</itemPath>
               </logicalFolder>
               <logicalFolder name="ble_util" displayName="ble_util" projectFiles="true">
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/byte_stream.h</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_assert.h</itemPath>
+                <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_aes.h</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="profile_ble" displayName="profile_ble" projectFiles="true">
@@ -374,6 +372,7 @@
           <itemPath>../src/config/default/configuration.h</itemPath>
           <itemPath>../src/config/default/device.h</itemPath>
           <itemPath>../src/config/default/interrupts.h</itemPath>
+          <itemPath>../src/config/default/sys_tasks.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <logicalFolder name="FreeRTOS" displayName="FreeRTOS" projectFiles="true">
@@ -521,6 +520,11 @@
           <itemPath>../src/packs/WBZ451_DFP/wbz451.h</itemPath>
         </logicalFolder>
       </logicalFolder>
+      <logicalFolder name="system" displayName="system" projectFiles="true">
+        <logicalFolder name="tmr" displayName="tmr" projectFiles="true">
+          <itemPath>../src/config/default/system/tmr/sys_tmr.h</itemPath>
+        </logicalFolder>
+      </logicalFolder>
       <logicalFolder name="wolfcrypt" displayName="wolfcrypt" projectFiles="true">
         <logicalFolder name="port" displayName="port" projectFiles="true">
           <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/port/pic32/CryptoLib_GCD_pb.h</itemPath>
@@ -589,7 +593,6 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/mpi_superclass.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/asn.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/cmac.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/idea.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/blake2-impl.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ripemd.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/dh.h</itemPath>
@@ -597,7 +600,6 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/certs_test.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/sp.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/curve25519.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/rabbit.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/cryptocb.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/blake2.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/poly1305.h</itemPath>
@@ -632,7 +634,6 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/md2.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/hash.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/aes.h</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/hc128.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/rsa.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/visibility.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/signature.h</itemPath>
@@ -657,9 +658,20 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/ed448.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/blake2-int.h</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/sha3.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/eccsi.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/falcon.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/sakke.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/kdf.h</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/siphash.h</itemPath>
       </logicalFolder>
       <itemPath>../src/app.h</itemPath>
       <itemPath>../src/app_idle_task.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="true">
+      <itemPath>Makefile</itemPath>
+      <itemPath>WBZ451_OLED_BLE_UART.mc3</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -673,6 +685,7 @@
         <itemPath>../src/app_ble/app_ble.c</itemPath>
         <itemPath>../src/app_ble/app_trsps_handler.c</itemPath>
         <itemPath>../src/app_ble/app_ble_handler.c</itemPath>
+        <itemPath>../src/app_ble/app_ble_utility.c</itemPath>
       </logicalFolder>
       <logicalFolder name="click_routines"
                      displayName="click_routines"
@@ -692,11 +705,13 @@
                 <itemPath>../src/config/default/ble/middleware_ble/ble_dm/ble_dm_sm.c</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_dm/ble_dm.c</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_dm/ble_dm_info.c</itemPath>
-                <itemPath>../src/config/default/ble/middleware_ble/ble_dm/ble_dm_aes.c</itemPath>
                 <itemPath>../src/config/default/ble/middleware_ble/ble_dm/ble_dm_conn.c</itemPath>
               </logicalFolder>
               <logicalFolder name="ble_gcm" displayName="ble_gcm" projectFiles="true">
                 <itemPath>../src/config/default/ble/middleware_ble/ble_gcm/ble_dd.c</itemPath>
+              </logicalFolder>
+              <logicalFolder name="ble_util" displayName="ble_util" projectFiles="true">
+                <itemPath>../src/config/default/ble/middleware_ble/ble_util/mw_aes.c</itemPath>
               </logicalFolder>
             </logicalFolder>
             <logicalFolder name="profile_ble" displayName="profile_ble" projectFiles="true">
@@ -938,6 +953,7 @@
                 <logicalFolder name="radialmenu" displayName="radialmenu" projectFiles="true">
                   <itemPath>../src/config/default/gfx/legato/widget/radialmenu/legato_widget_radial_menu_skin_classic.c</itemPath>
                   <itemPath>../src/config/default/gfx/legato/widget/radialmenu/legato_widget_radial_menu.c</itemPath>
+                  <itemPath>../src/config/default/gfx/legato/widget/radialmenu/legato_widget_radial_menu_state.c</itemPath>
                 </logicalFolder>
                 <logicalFolder name="radiobutton" displayName="radiobutton" projectFiles="true">
                   <itemPath>../src/config/default/gfx/legato/widget/radiobutton/legato_radiobutton_group.c</itemPath>
@@ -1135,7 +1151,6 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/ecc_fp.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/cpuid.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sha3.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/idea.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/wc_pkcs11.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/pwdbased.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/rc2.c</itemPath>
@@ -1158,19 +1173,16 @@
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sp_c64.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/chacha20_poly1305.c</itemPath>
         <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/blake2s.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/rabbit.c</itemPath>
-        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/hc128.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/falcon.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/kdf.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/eccsi.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/sakke.c</itemPath>
+        <itemPath>../src/third_party/wolfssl/wolfssl/wolfcrypt/src/siphash.c</itemPath>
       </logicalFolder>
       <itemPath>../src/app_user_edits.c</itemPath>
       <itemPath>../src/main.c</itemPath>
       <itemPath>../src/app.c</itemPath>
       <itemPath>../src/app_idle_task.c</itemPath>
-    </logicalFolder>
-    <logicalFolder name="ExternalFiles"
-                   displayName="Important Files"
-                   projectFiles="false">
-      <itemPath>Makefile</itemPath>
-      <itemPath>WBZ451_OLED_BLE_UART.mc3</itemPath>
     </logicalFolder>
   </logicalFolder>
   <sourceRootList>
@@ -1184,23 +1196,23 @@
         <targetDevice>WBZ451</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>pkob4hybrid</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC32</languageToolchain>
-        <languageToolchainVersion>4.10</languageToolchainVersion>
+        <languageToolchainVersion>4.45</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <packs>
         <pack name="CMSIS" vendor="ARM" version="5.8.0"/>
-        <pack name="PIC32CX-BZ_DFP" vendor="Microchip" version="1.0.107"/>
+        <pack name="PIC32CX-BZ_DFP" vendor="Microchip" version="1.4.243"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>../src/config/default/ble/lib/ble_stack.a</linkerLibFileItem>
             <linkerLibFileItem>../src/config/default/driver/pds/pds.a</linkerLibFileItem>
             <linkerLibFileItem>../src/config/default/driver/device_support/pic32cx_bz2_device_support.a</linkerLibFileItem>
+            <linkerLibFileItem>../src/config/default/ble/lib/ble_stack_bz2_lib.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -1368,6 +1380,7 @@
       </C32Global>
       <Tool>
         <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UpdateOptions"
@@ -1381,7 +1394,11 @@
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="event.recorder.debugger.behavior" value="Running"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
         <property key="freeze.timers" value="false"/>
+        <property key="lastid" value=""/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
@@ -1412,6 +1429,7 @@
         <property key="programoptions.program.otpconfig" value="false"/>
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
+        <property key="programoptions.smart.program" value="When debugging only"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
         <property key="toolpack.updateoptions"
                   value="toolpack.updateoptions.uselatestoolpack"/>
@@ -1420,6 +1438,7 @@
       </Tool>
       <pkob4hybrid>
         <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="SecureSegment.SegmentProgramming" value="FullChipProgramming"/>
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UpdateOptions"
@@ -1433,7 +1452,11 @@
         <property key="debugoptions.reset-behaviour" value="Use system settings"/>
         <property key="debugoptions.simultaneous.debug" value="false"/>
         <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="event.recorder.debugger.behavior" value="Running"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
         <property key="freeze.timers" value="false"/>
+        <property key="lastid" value=""/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
         <property key="memories.configurationmemory" value="true"/>
@@ -1447,8 +1470,6 @@
                   value="${memories.instruction.ram.ranges}"/>
         <property key="memories.programmemory" value="true"/>
         <property key="memories.programmemory.ranges" value="1000000-10fffff"/>
-        <property key="programmerToGoFilePath"
-                  value="C:/Users/i71391/HarmonyProjects/WBZ451_OLED_BLE_UART/firmware/WBZ451_OLED_BLE_UART.X/debug/default/WBZ451_OLED_BLE_UART_ptg"/>
         <property key="programoptions.donoteraseauxmem" value="false"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.pgmentry.voltage" value="low"/>
@@ -1464,6 +1485,7 @@
         <property key="programoptions.program.otpconfig" value="false"/>
         <property key="programoptions.programcalmem" value="false"/>
         <property key="programoptions.programuserotp" value="false"/>
+        <property key="programoptions.smart.program" value="When debugging only"/>
         <property key="programoptions.testmodeentrymethod" value="VDDFirst"/>
         <property key="toolpack.updateoptions"
                   value="toolpack.updateoptions.uselatestoolpack"/>
